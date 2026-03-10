@@ -6,7 +6,10 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm \
+    libdecor \
+    qt6-base \
+    sdl2
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -16,11 +19,10 @@ get-debloated-pkgs --add-common --prefer-nano
 #make-aur-package PACKAGENAME
 
 # If the application needs to be manually built that has to be done down here
-
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+if [ "${DEVEL_RELEASE-}" = 1 ]; then
+ 	make-aur-package 86box-roms-git
+  make-aur-package 86box-git
+else
+ 	make-aur-package 86box-roms
+  make-aur-package 86box
+fi
