@@ -11,7 +11,7 @@ pacman -Syu --noconfirm \
     lxqt-qtplugin \
     qt6-base      \
     qt6ct         \
-    sdl2
+    sdl2-compat
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
