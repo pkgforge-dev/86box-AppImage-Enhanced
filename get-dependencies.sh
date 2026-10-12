@@ -14,6 +14,8 @@ pacman -Syu --noconfirm \
     libslirp       \
     lxqt-qtplugin  \
     openal         \
+	pipewire-audio \
+    pipewire-jack  \
     qt6ct          \
     rtmidi         \
     sdl2-compat    \
