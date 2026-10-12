@@ -13,6 +13,7 @@ pacman -Syu --noconfirm \
     libserialport  \
     libslirp       \
     lxqt-qtplugin  \
+	ninja		   \
     openal         \
 	pipewire-audio \
     pipewire-jack  \
