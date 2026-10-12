@@ -28,15 +28,6 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
-#if [ "${DEVEL_RELEASE-}" = 1 ]; then
-#    make-aur-package 86box-roms-git
-#    package=86box-git
-#else
-#    make-aur-package 86box-roms
-#    package=86box
-#fi
-#make-aur-package $package
-#pacman -Q "$package" | awk '{print $2; exit}' > ~/version
 echo "Getting roms and assets..."
 echo "---------------------------------------------------------------"
 git clone --depth 1 https://github.com/86Box/roms ./roms
