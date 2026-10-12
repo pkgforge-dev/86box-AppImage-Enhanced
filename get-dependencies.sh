@@ -33,15 +33,15 @@ get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 #fi
 #make-aur-package $package
 #pacman -Q "$package" | awk '{print $2; exit}' > ~/version
-echo "Getting roms..."
+echo "Getting roms and assets..."
 echo "---------------------------------------------------------------"
-REPO="https://github.com/86Box/roms"
-git clone --depth 1 "$REPO" ./roms
+git clone --depth 1 https://github.com/86Box/roms ./roms
+git clone --depth 1 https://github.com/86Box/assets ./assets
 
 mkdir -p /usr/share/86Box/roms
-cd ./roms
-mv -v [a-z]* /usr/share/86Box/roms
-cd ../
+mkdir -p /usr/share/86Box/assets
+mv -v ./roms/[a-z]* /usr/share/86Box/roms
+mv -v ./assets/sounds /usr/share/86Box/assets
 
 echo "Building 86box..."
 echo "---------------------------------------------------------------"
@@ -57,7 +57,6 @@ else
 	git clone --branch v"$VERSION" --single-branch --depth 1 "$REPO" ./86Box
 fi
 echo "$VERSION" > ~/version
-git clone --depth https://github.com/86Box/assets
 
 cmake -S ./86Box -B build --preset regular -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT6=on
 cmake --build build -j$(nproc)
