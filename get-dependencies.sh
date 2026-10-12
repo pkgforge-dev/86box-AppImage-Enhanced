@@ -57,8 +57,8 @@ if [ "${DEVEL_RELEASE-}" = 1 ]; then
     git clone --depth 1 "$REPO" ./86Box
 else
 	echo "Making stable build of 86box..."
-	VERSION="$(git ls-remote --tags --sort="v:refname" "$REPO" | tail -n1 | sed 's/.*\///; s/\^{}//; s/^v//')"
-	git clone --branch v"$VERSION" --single-branch --depth 1 "$REPO" ./86Box
+	VERSION="$(git ls-remote --tags --sort="v:refname" "$REPO" | grep -v '-' | tail -n1 | sed 's/.*\///; s/\^{}//; s/^v//')"
+    git clone --branch v"$VERSION" --single-branch --depth 1 "$REPO" ./86Box
 fi
 echo "$VERSION" > ~/version
 
