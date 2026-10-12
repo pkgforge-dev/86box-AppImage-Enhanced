@@ -17,6 +17,7 @@ pacman -Syu --noconfirm \
     openal         \
 	pipewire-audio \
     pipewire-jack  \
+	qt6-tools	   \
     qt6ct          \
     rtmidi         \
     sdl2-compat    \
