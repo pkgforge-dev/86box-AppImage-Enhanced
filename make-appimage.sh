@@ -10,9 +10,10 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=https://raw.githubusercontent.com/86Box/86Box/refs/heads/master/src/unix/assets/256x256/net.86box.86Box.png
 export DESKTOP=https://raw.githubusercontent.com/86Box/86Box/refs/heads/master/src/unix/assets/net.86box.86Box.desktop
 export STARTUPWMCLASS=net.86box.86Box
+export DEPLOY_PIPEWIRE=1 # needed for libfluidsynth
 
 # Deploy dependencies
-quick-sharun /usr/bin/86Box
+quick-sharun /usr/bin/86Box /usr/lib/libopenal.so*
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
